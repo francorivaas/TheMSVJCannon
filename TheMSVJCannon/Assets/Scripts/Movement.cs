@@ -15,6 +15,12 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Physics.gravity += new Vector3(0f, -1.0f, 0f);
+        }
+
         float movementX = Input.GetAxisRaw("Horizontal");
         float movementY = Input.GetAxisRaw("Vertical");
 

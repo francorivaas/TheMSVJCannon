@@ -5,28 +5,14 @@ using UnityEngine;
 public class ConstantMovement : MonoBehaviour
 {
     public float speed = 5.0f;
-    private Rigidbody body;
 
-    private void Awake()
+    private void Update()
     {
-        body = GetComponent<Rigidbody>();    
-    }
+        transform.position += new Vector3(0f, 0f, speed) * Time.deltaTime;
 
-    private void Start()
-    {
-              
-    }
-
-    private void FixedUpdate()
-    {
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.Space))
         {
-            body.AddForce(Vector3.forward * 20.0f);
+            Physics.gravity += new Vector3(0f, -50.0f, 0f);
         }
-        
     }
-    //private void Update()
-    //{
-    //    transform.position += new Vector3(0f, 0f, speed) * Time.deltaTime;        
-    //}
 }

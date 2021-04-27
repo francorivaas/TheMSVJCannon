@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class EnterFriction : MonoBehaviour
 {
-    //[SerializeField] private PhysicMaterial friction;
     [SerializeField] private GameObject player;
     public bool gravityOn;
 
-    private void Start()
+    private void Update()
     {
-        //friction.dynamicFriction = 0.6f;
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -21,9 +20,12 @@ public class EnterFriction : MonoBehaviour
             body.useGravity = false;
             body.AddForce(transform.position + Vector3.up * 150.0f);
         }
+
         else if (!gravityOn)
         {
             player.GetComponent<Rigidbody>().useGravity = true;
+            
+            
         }
             
     }
