@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnterFriction : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    public bool gravityOn;
+    public bool gravityOff;
 
     private void Update()
     {
@@ -14,14 +14,14 @@ public class EnterFriction : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (gravityOn && collision.gameObject.CompareTag("Player"))
+        if (gravityOff && collision.gameObject.CompareTag("Player"))
         {
             var body = player.GetComponent<Rigidbody>();
             body.useGravity = false;
             body.AddForce(transform.position + Vector3.up * 150.0f);
         }
 
-        else if (!gravityOn)
+        else if (!gravityOff)
         {
             player.GetComponent<Rigidbody>().useGravity = true;
             

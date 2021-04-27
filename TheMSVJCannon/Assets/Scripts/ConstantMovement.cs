@@ -9,10 +9,5 @@ public class ConstantMovement : MonoBehaviour
     private void Update()
     {
         transform.position += new Vector3(0f, 0f, speed) * Time.deltaTime;
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Physics.gravity += new Vector3(0f, -50.0f, 0f);
-        }
     }
 }
