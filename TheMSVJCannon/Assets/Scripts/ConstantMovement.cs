@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class ConstantMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float speed = 5.0f;
+    private Rigidbody body;
+
+    private void Awake()
     {
-        
+        body = GetComponent<Rigidbody>();    
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
+              
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetKey(KeyCode.S))
+        {
+            body.AddForce(Vector3.forward * 20.0f);
+        }
         
     }
+    //private void Update()
+    //{
+    //    transform.position += new Vector3(0f, 0f, speed) * Time.deltaTime;        
+    //}
 }

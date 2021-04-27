@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float speed = 5.0f;
+    private Vector3 movement;
+    private Rigidbody rb;
+
+    private void Awake()
     {
-        
+        rb = GetComponent<Rigidbody>();    
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        float movementX = Input.GetAxisRaw("Horizontal");
+        float movementY = Input.GetAxisRaw("Vertical");
+
+        movement = new Vector3(movementX, 0f, movementY);
+        movement = movement * speed * Time.deltaTime;
+        rb.MovePosition(transform.position + movement);
     }
 }
